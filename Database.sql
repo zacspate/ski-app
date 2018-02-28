@@ -1,19 +1,19 @@
-CREATE TABLE Employee
+CREATE TABLE employee
 (
-  First_Name INT NOT NULL,
-  Last_Name INT NOT NULL,
-  EmployeeID INT NOT NULL,
-  PRIMARY KEY (EmployeeID)
+  firstName varchar NOT NULL,
+  lastName varchar NOT NULL,
+  employeeID INT NOT NULL,
+  PRIMARY KEY (employeeID)
 );
 
 CREATE TABLE Racer
 (
-  Bib_Number INT NOT NULL,
-  Run_1_time INT NOT NULL,
-  Run_2_Time INT NOT NULL,
-  Level INT NOT NULL,
-  Race INT NOT NULL,
-  EmployeeID INT NOT NULL,
-  PRIMARY KEY (Bib_Number),
-  FOREIGN KEY (EmployeeID) REFERENCES Employee(EmployeeID)
+  bibNumber INT NOT NULL,
+  run1time float NOT NULL,
+  run2Time float NOT NULL,
+  level varchar NOT NULL,
+  race varchar NOT NULL,
+  employeeID INT NOT NULL,
+  PRIMARY KEY (bibNumber),
+  FOREIGN KEY (employeeID) REFERENCES employee(employeeID)
 );
