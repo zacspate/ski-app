@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+function validateForm() {
+    var bibtof = document.forms["myForm"]["fbib"].value;
+    if (bibtof == "") {
+        alert("Bib must be filled out");
+        return false;
+    }
+	var runtimetof = document.forms["myForm"]["fruntime"].value;
+    if (runtimetof == "") {
+        alert("Run Time must be filled out");
+        return false;
+    }
+}
+</script>
+</head>
+<body>
+<h1>Ski</h1>
+<form name="myForm" action="/action_page.php"
+onsubmit="return validateForm()" method="post">
+Race: <select id="frace">
+	<option>Slalom</option>
+	<option>Downhill</option>
+	<option>Jive</option>
+</select>
+<br/>
+Level: <select id="flevel">
+	<option>Novice</option>
+	<option>Intermediate</option>
+	<option>Advanced</option>
+</select>
+<br/>
+Bib Number: <input type="number" name="fbib">
+<br/>
+Run Number: <select id="frunnumber">
+	<option>1</option>
+	<option>2</option>
+</select>
+<br/>
+Run Time (Enter DNF for DNF): <input type="text" name="fruntime">
+<br/>
+<input type="submit" value="Submit">
+</form>
+
+</body>
+</html>
