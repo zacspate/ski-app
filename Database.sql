@@ -1,11 +1,11 @@
-CREATE TABLE employee
+/*CREATE TABLE employee
 (
   firstName varchar NOT NULL,
   lastName varchar NOT NULL,
   employeeID INT NOT NULL,
   PRIMARY KEY (employeeID)
 );
-
+*/
 CREATE TABLE Racer
 (
   bibNumber INT NOT NULL,
@@ -13,7 +13,7 @@ CREATE TABLE Racer
   run2Time float NOT NULL,
   level varchar NOT NULL,
   race varchar NOT NULL,
-  employeeID INT NOT NULL,
+  /*employeeID INT NOT NULL,*/
   PRIMARY KEY (bibNumber),
-  FOREIGN KEY (employeeID) REFERENCES employee(employeeID)
+  /*FOREIGN KEY (employeeID) REFERENCES employee(employeeID)*/
 );
