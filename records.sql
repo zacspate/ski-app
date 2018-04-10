@@ -8,14 +8,12 @@
 */
 CREATE TABLE Racer
 (
-  racerid AutoNumber Not NULL,
-  bibNumber Integer NOT NULL,
-  run1time FLOAT NOT NULL,
-  run2Time FLOAT NULL,
-  level VARCHAR NOT NULL,
-  race VARCHAR NOT NULL,
-  /*employeeID INT NOT NULL,*/
-  PRIMARY KEY (racerid),
-  /*FOREIGN KEY (employeeID) REFERENCES employee(employeeID)*/
-  
+
+  racerid INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  bibNumber INT,
+  run1time VARCHAR(15),
+  run2Time VARCHAR(15),
+  level VARCHAR(15),
+  race VARCHAR(15)
+
 );
