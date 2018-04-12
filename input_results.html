@@ -55,7 +55,17 @@
 <!--script for validiating the form, makes sure the form is filled out*/-->
 <script>
 function validateForm() {
-    var bibtof = document.forms["myForm"]["fbib"].value;
+    var racetof = document.forms["myForm"]["frace"].value;
+    if (racetof == "") {
+        alert("A race type must be selected");
+        return false;
+    }
+	var leveltof = document.forms["myForm"]["flevel"].value;
+    if (leveltof == "") {
+        alert("A level must be selected");
+        return false;
+    }
+	var bibtof = document.forms["myForm"]["fbib"].value;
     if (bibtof == "") {
         alert("Bib must be filled out");
         return false;
@@ -106,17 +116,17 @@ function validateForm() {
 	<form name="myForm" action="/action_page.php"
 		onsubmit="return validateForm()" method="post">
 		Race: <select id="frace">
-			<option disabled selected>Select One</option>
-			<option>Slalom</option>
-			<option>Super G</option>
-			<option>GS</option>
+			<option value = "" disabled selected>Select One</option>
+			<option value = "Slalom">Slalom</option>
+			<option value = "Super g">Super G</option>
+			<option value = "GS">GS</option>
 		</select>
 		<br/>
 		Level: <select id="flevel">
-			<option disabled selected>Select One</option>
-			<option>Novice</option>
-			<option>Intermediate</option>
-			<option>Advanced</option>
+			<option value = "" disabled selected>Select One</option>
+			<option value = "Novice">Novice</option>
+			<option value = "Intermediate">Intermediate</option>
+			<option value = "Advanced">Advanced</option>
 		</select>
 		<br/>
 		Bib Number: <input type="number" name="fbib">
@@ -137,7 +147,7 @@ function validateForm() {
 </div>
 
 <footer class="container-fluid text-center" style="float-bottom">
-  <p>Last updated: March 27, 2018 by Josiah Stickles</p>
+  <p>Last updated: April 12, 2018 by Josiah Stickles</p>
 </footer>
 
 </body>
