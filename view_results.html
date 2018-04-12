@@ -52,24 +52,26 @@
       .row.content {height:auto;} 
     }
   </style>
-<!--script for validiating the form, makes sure the form is filled out*/-->
+  
+  <!-- Validates the input to make sure that a race and level are selected and 
+		not left on select one-->
 <script>
 function validateForm() {
-    var bibtof = document.forms["myForm"]["fbib"].value;
-    if (bibtof == "") {
-        alert("Bib must be filled out");
+    var racetof = document.forms["myForm"]["frace"].value;
+    if (racetof == "") {
+        alert("A race type must be selected");
         return false;
     }
-	var runtimetof = document.forms["myForm"]["fruntime"].value;
-    if (runtimetof == "") {
-        alert("Run Time must be filled out");
+	var leveltof = document.forms["myForm"]["flevel"].value;
+    if (leveltof == "") {
+        alert("A level must be selected");
         return false;
     }
 }
 </script>
 </head>
 <body>
-<!-- Keept if a navbar is wanted at some poin in the development-->
+<!-- The navbar at the top of the screen with the home button-->
 <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #D8AC25">
   <div class="container" style="padding-left: 10%; padding-right: 10%">
     <div class="navbar-header">
@@ -90,27 +92,48 @@ function validateForm() {
 
 <div style="height:50px">
 </div>
+<!-- The three columns in the middle of the screen-->
 <div class="container-fluid text-center">    
   <div class="row content">
+	<!-- The left side green column-->
     <div class="col-sm-2 sidenav sidenav-left">
 
     </div>
+	<!-- The main white block in the middle of the screen that contains the -->
     <div class="col-sm-8 center text-left"> 
 	  <div style="text-align: center">
 	    <h3>Pennsylvania Special Olympics</h3>
 	    <h4>Alpine Skiing</h4>
 	  </div>
 	  <hr>
-		<p>Not implemented yet</p>
+		<form name="myForm" action="results.php"
+		onsubmit="return validateForm()" method="post">
+		Race: <select id="frace">
+			<option value = "" disabled selected>Select One</option>
+			<option value = "slalom">Slalom</option>
+			<option value = "super g">Super G</option>
+			<option value = "gs">GS</option>
+		</select>
+		<br/>
+		Level: <select id="flevel">
+			<option value = "" disabled selected>Select One</option>
+			<option value = "novice">Novice</option>
+			<option value = "intermediate">Intermediate</option>
+			<option value = "advanced">Advanced</option>
+		</select>
+		<br><br>
+		<input type="submit" value="Submit">
+	</form>
 	
     </div>
+	<!-- The right side green column-->
     <div class="col-sm-2 sidenav sidenav-left">
     </div>
   </div>
 </div>
 
 <footer class="container-fluid text-center" style="float-bottom">
-  <p>Last updated: March 27, 2018 by Josiah Stickles</p>
+  <p>Last updated: April 12, 2018 by Josiah Stickles</p>
 </footer>
 
 </body>
