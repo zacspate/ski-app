@@ -115,14 +115,14 @@ function validateForm() {
 	<!--Form for inputing the data-->
 	<form name="myForm" action="/action_page.php"
 		onsubmit="return validateForm()" method="post">
-		Race: <select id="frace">
+		Race: <select name="frace">
 			<option value = "" disabled selected>Select One</option>
 			<option value = "Slalom">Slalom</option>
 			<option value = "Super g">Super G</option>
 			<option value = "GS">GS</option>
 		</select>
 		<br/>
-		Level: <select id="flevel">
+		Level: <select name="flevel">
 			<option value = "" disabled selected>Select One</option>
 			<option value = "Novice">Novice</option>
 			<option value = "Intermediate">Intermediate</option>
@@ -131,12 +131,12 @@ function validateForm() {
 		<br/>
 		Bib Number: <input type="number" name="fbib">
 		<br/>
-		Run Number: <select id="frunnumber">
-			<option>1</option>
-			<option>2</option>
+		Run Number: <select name="frunnumber">
+			<option value = "one">1</option>
+			<option value = "two">2</option>
 		</select>
 		<br/>
-		Run Time (Enter DNF for DNF): <input type="text" name="fruntime">
+		 Run Time (Enter DNF for Did Not Finish): <input type="text" name="fruntime" pattern="[D][N][F]|[0-9:.]+" title="enter DNF or a time"> 
 		<br/>
 		<input type="submit" value="Submit">
 	</form>

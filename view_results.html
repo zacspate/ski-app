@@ -108,18 +108,18 @@ function validateForm() {
 	  <hr>
 		<form name="myForm" action="results.php"
 		onsubmit="return validateForm()" method="post">
-		Race: <select id="frace">
+		Race: <select name="frace">
 			<option value = "" disabled selected>Select One</option>
-			<option value = "slalom">Slalom</option>
-			<option value = "super g">Super G</option>
-			<option value = "gs">GS</option>
+			<option value = "Slalom">Slalom</option>
+			<option value = "Super G">Super G</option>
+			<option value = "GS">GS</option>
 		</select>
 		<br/>
-		Level: <select id="flevel">
+		Level: <select name="flevel">
 			<option value = "" disabled selected>Select One</option>
-			<option value = "novice">Novice</option>
-			<option value = "intermediate">Intermediate</option>
-			<option value = "advanced">Advanced</option>
+			<option value = "Novice">Novice</option>
+			<option value = "Intermediate">Intermediate</option>
+			<option value = "Advanced">Advanced</option>
 		</select>
 		<br><br>
 		<input type="submit" value="Submit">
