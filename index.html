@@ -47,29 +47,16 @@
 		padding: 15px;
 		}
 	  .center {
-	    height: 400px;
+	    height: auto;
+		padding: 15px;
 	  }
       .row.content {height:auto;} 
     }
   </style>
-<!--script for validiating the form, makes sure the form is filled out*/-->
-<script>
-function validateForm() {
-    var bibtof = document.forms["myForm"]["fbib"].value;
-    if (bibtof == "") {
-        alert("Bib must be filled out");
-        return false;
-    }
-	var runtimetof = document.forms["myForm"]["fruntime"].value;
-    if (runtimetof == "") {
-        alert("Run Time must be filled out");
-        return false;
-    }
-}
-</script>
+
 </head>
 <body>
-<!-- Keept if a navbar is wanted at some poin in the development-->
+<!-- The navbar at the top of the screen with the home button-->
 <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #D8AC25">
   <div class="container" style="padding-left: 10%; padding-right: 10%">
     <div class="navbar-header">
@@ -82,6 +69,8 @@ function validateForm() {
     <div class="collapse navbar-collapse navbar-fixed" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="index.html" style="color: white">Home</a></li>
+		<li><a href="view_results.html" style="color: white">View Results</a></li>
+		<li><a href="input_results.html" style="color: white">Enter Results</a></li>
       </ul>
     </div>
   </div>
@@ -102,10 +91,10 @@ function validateForm() {
 	  </div>
 	  <hr>
       <div class="col-sm-6" style="text-align: center">
-	    <a href="view_results.html">View Results</a>
+	    <a type="submit" class="btn btn-primary btn-lg btn-block" href="view_results.html">View Results</a>
 	  </div>
 	  <div class="col-sm-6" style="text-align: center">
-	    <a href="input_results.html">Enter Results</a>
+		<a type="submit" class="btn btn-primary btn-lg btn-block" href="input_results.html">Enter Results</a>
 	  </div>
     </div>
     <div class="col-sm-2 sidenav sidenav-left">
@@ -114,7 +103,7 @@ function validateForm() {
 </div>
 
 <footer class="container-fluid text-center" style="float-bottom">
-  <p>Last updated: March 27, 2018 by Josiah Stickles</p>
+  <p>Last updated: April 17, 2018</p>
 </footer>
 
 </body>

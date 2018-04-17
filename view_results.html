@@ -47,7 +47,8 @@
 		padding: 15px;
 		}
 	  .center {
-	    height: 400px;
+	    height: auto;
+		padding: 15px;
 	  }
       .row.content {height:auto;} 
     }
@@ -84,6 +85,8 @@ function validateForm() {
     <div class="collapse navbar-collapse navbar-fixed" id="myNavbar">
       <ul class="nav navbar-nav">
         <li><a href="index.html" style="color: white">Home</a></li>
+		<li><a href="view_results.html" style="color: white">View Results</a></li>
+		<li><a href="input_results.html" style="color: white">Enter Results</a></li>
       </ul>
     </div>
   </div>
@@ -95,11 +98,11 @@ function validateForm() {
 <!-- The three columns in the middle of the screen-->
 <div class="container-fluid text-center">    
   <div class="row content">
-	<!-- The left side green column-->
+	<!-- The left side column-->
     <div class="col-sm-2 sidenav sidenav-left">
 
     </div>
-	<!-- The main white block in the middle of the screen that contains the -->
+	<!-- The main block in the middle of the screen that contains the selection form-->
     <div class="col-sm-8 center text-left"> 
 	  <div style="text-align: center">
 	    <h3>Pennsylvania Special Olympics</h3>
@@ -108,32 +111,36 @@ function validateForm() {
 	  <hr>
 		<form name="myForm" action="results.php"
 		onsubmit="return validateForm()" method="post">
-		Race: <select name="frace">
+		
+		<div class="form-group">
+		Race: <select class ="form-control" name="frace">
 			<option value = "" disabled selected>Select One</option>
 			<option value = "Slalom">Slalom</option>
-			<option value = "Super G">Super G</option>
+			<option value = "Super g">Super G</option>
 			<option value = "GS">GS</option>
 		</select>
-		<br/>
-		Level: <select name="flevel">
+		</div>
+		
+		<div class="form-group">
+		Level: <select class ="form-control" name="flevel">
 			<option value = "" disabled selected>Select One</option>
 			<option value = "Novice">Novice</option>
 			<option value = "Intermediate">Intermediate</option>
 			<option value = "Advanced">Advanced</option>
 		</select>
-		<br><br>
-		<input type="submit" value="Submit">
+		</div>
+		<input class="btn btn-primary btn-block"  type="submit" value="Submit">
 	</form>
 	
     </div>
-	<!-- The right side green column-->
+	<!-- The right side column-->
     <div class="col-sm-2 sidenav sidenav-left">
     </div>
   </div>
 </div>
 
 <footer class="container-fluid text-center" style="float-bottom">
-  <p>Last updated: April 12, 2018 by Josiah Stickles</p>
+  <p>Last updated: April 17, 2018</p>
 </footer>
 
 </body>
