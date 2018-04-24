@@ -1,11 +1,4 @@
-/*CREATE TABLE employee
-(
-  firstName varchar NOT NULL,
-  lastName varchar NOT NULL,
-  employeeID INT NOT NULL,
-  PRIMARY KEY (employeeID)
-);
-*/
+
 CREATE TABLE Racer
 (
 
