@@ -7,52 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* D8AC25 - yellow  195531 - green */
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 700px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #195531;
-      height: 100%;
-    }
-	
-	.center {
-	  
-	}
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: 200px;
-        padding: 15px;
-      }
-	  .sidenav-left {
-	    height: auto;
-		padding: 15px;
-		}
-	  .center {
-	    height: auto;
-		padding: 15px;
-	  }
-      .row.content {height:auto;} 
-    }
-  </style>
+  <link rel="stylesheet" href="ski_app.css">
   
   <!-- Validates the input to make sure that a race and level are selected and 
 		not left on select one-->
@@ -71,6 +26,7 @@ function validateForm() {
 }
 </script>
 </head>
+
 <body>
 <!-- The navbar at the top of the screen with the home button-->
 <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #D8AC25">
@@ -108,6 +64,7 @@ function validateForm() {
 	    <h3>Pennsylvania Special Olympics</h3>
 	    <h4>Alpine Skiing</h4>
 	  </div>
+	  
 	  <hr>
 		<form name="myForm" action="results.php"
 		onsubmit="return validateForm()" method="post">
@@ -131,10 +88,9 @@ function validateForm() {
 		</div>
 		<input class="btn btn-primary btn-block"  type="submit" value="Submit">
 	</form>
+	</div>
 	
-    </div>
-	<!-- The right side column-->
-    <div class="col-sm-2 sidenav sidenav-left">
+    <div class="col-sm-2 sidenav sidenav-right">
     </div>
   </div>
 </div>
