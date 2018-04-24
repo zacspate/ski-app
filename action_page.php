@@ -7,54 +7,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* D8AC25 - yellow  195531 - green */
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 700px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #195531;
-      height: 100%;
-    }
-	
-	.center {
-	  
-	}
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: 200px;
-        padding: 15px;
-      }
-	  .sidenav-left {
-	    height: auto;
-		padding: 15px;
-		}
-	  .center {
-	    height: auto;
-		padding: 15px;
-	  }
-      .row.content {height:auto;} 
-    }
-  </style>
-
+  <link rel="stylesheet" href="ski_app.css">
 </head>
+
 <body>
 <!-- The navbar at the top of the screen with the home button-->
 <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #D8AC25">
@@ -90,6 +45,7 @@
 	    <h4>Alpine Skiing</h4>
 	  </div>
 	  <hr>
+	  
 	    <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with password 'project4skiapp') */
@@ -102,30 +58,48 @@ if($link === false){
 
 // Attempt insert query execution if runnumber = 1
 if(strcmp("$_POST[frunnumber]","one")==0){
-	$sql= "INSERT INTO Racer(bibNumber,level,race,run1time) VALUES ('$_POST[fbib]','$_POST[flevel]','$_POST[frace]','$_POST[fruntime]')";
-	if(mysqli_query($link, $sql)){
-		echo "Records inserted successfully for run 1.";
-	} else{
-		echo "ERROR: Could not insert time. Please try again. " . mysqli_error($link);
+	$tester= "SELECT bibNumber FROM Racer WHERE bibNumber = '$_POST[fbib]' AND level = '$_POST[flevel]' AND race = '$_POST[frace]'";
+	$result = $link->query($tester);
+	$row = $result->fetch_assoc();
+	if(strcmp($row['bibNumber'], "$_POST[fbib]")==0) {
+		echo "Error: Bib Number already used in this race and level";
+	}else{
+		$sql= "INSERT INTO Racer(bibNumber,level,race,run1time) VALUES ('$_POST[fbib]','$_POST[flevel]','$_POST[frace]','$_POST[fruntime]')";
+		if(mysqli_query($link, $sql)){
+			echo "Records inserted successfully for run 1. ";
+		} else{
+			echo "ERROR: Could not insert time. Please try again. ";
+		}
 	}
 }else{
-	 "UPDATE Racer SET run2Time = '$_POST[fruntime]' WHERE bibNumber = '$_POST[fbib]' AND level = '$_POST[flevel]' AND race = '$_POST[frace]'";
-	if(mysqli_query($link, $sql)){
-		echo "Records inserted successfully for run 2.";
-	} else{
-		echo "ERROR: Could not insert time for run 2. Ensure race, level, and bib are correct and try again. " . mysqli_error($link);
+	$sql = "SELECT run1Time FROM Racer WHERE bibNumber = '$_POST[fbib]' AND level = '$_POST[flevel]' AND race = '$_POST[frace]'";
+	$result = $link->query($sql);
+	$row = $result->fetch_assoc();
+	if(strcmp($row['run1Time'],"DNF")==0){
+		echo "Cannot enter run 2 time for racer that DNF in race 1";
+	}else{
+		$tester= "SELECT bibNumber FROM Racer WHERE bibNumber = '$_POST[fbib]' AND level = '$_POST[flevel]' AND race = '$_POST[frace]'";
+		$result = $link->query($tester);
+		$row = $result->fetch_assoc();
+		if(strcmp($row['bibNumber'], "$_POST[fbib]")==0) {
+			$sql= "UPDATE Racer SET run2Time = '$_POST[fruntime]' WHERE bibNumber = '$_POST[fbib]' AND level = '$_POST[flevel]' AND race = '$_POST[frace]'";
+			if(mysqli_query($link, $sql)){
+				echo "Records inserted successfully for run 2.";
+			} else{
+				echo "ERROR: Could not insert time for run 2. Ensure race, level, and bib are correct and try again. ";
+			}
+		}else{
+			echo "Cannot enter run 2 time for racer who does not have run 1 time.";
+		}
 	}
 }
-
-
-echo "<a href=input_results.html>Back</a>";
-
 // Close connection
 mysqli_close($link);
 ?>
+
 	<a class="btn btn-primary btn-lg btn-block" href=input_results.html>Back</a>
     </div>
-    <div class="col-sm-2 sidenav sidenav-left">
+    <div class="col-sm-2 sidenav sidenav-right">
     </div>
   </div>
 </div>

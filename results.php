@@ -1,17 +1,17 @@
 <?php
-/* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with password 'project4skiapp') */
+/* Attempt MySQL server connection*/
 $link = mysqli_connect("localhost", "root", "project4skiapp", "records");
 
-// Check connection
+// Check if connection is succesful
 if($link === false){
     die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
 
-$sql = "SELECT bibNumber, run1Time, run2Time FROM Racer WHERE level = '$_POST[flevel]' AND race = '$_POST[frace]'";
+$sql = "SELECT bibNumber, run1Time, run2Time FROM Racer WHERE level = '$_POST[flevel]' AND race = '$_POST[frace]' ORDER BY bibNumber ASC";
 $result = $link->query($sql);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,54 +21,9 @@ $result = $link->query($sql);
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* D8AC25 - yellow  195531 - green */
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
-    .navbar {
-      margin-bottom: 0;
-      border-radius: 0;
-    }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 700px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      padding-top: 20px;
-      background-color: #195531;
-      height: 100%;
-    }
-	
-	.center {
-	  
-	}
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: 200px;
-        padding: 15px;
-      }
-	  .sidenav-left {
-	    height: auto;
-		padding: 15px;
-		}
-	  .center {
-	    height: auto;
-		padding: 15px;
-	  }
-      .row.content {height:auto;} 
-    }
-  </style>
-
+  <link rel="stylesheet" href="ski_app.css">
 </head>
+
 <body>
 <!-- The navbar at the top of the screen with the home button-->
 <nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #D8AC25">
@@ -105,6 +60,11 @@ $result = $link->query($sql);
 	  </div>
 	  <hr>
       <div class="col-sm-6" style="text-align: center">
+	  
+	<?php
+		echo "Race: $_POST[frace], Level: $_POST[flevel]";
+	?>
+	
 	    <table class="table table-bordered">
                         <thead>
                         <tr>
@@ -121,7 +81,7 @@ $result = $link->query($sql);
                         echo '<tr>
                                 <td>'.$row['bibNumber'].'</td>
                                 <td>'.$row['run1Time'].'</td>
-                                <td>'.$row['run2Time'].'</td>
+				<td>'.$row['run2Time'].'</td>
                                 </tr>';
                 }
                 }
@@ -130,7 +90,7 @@ $result = $link->query($sql);
         </table>
 	  </div>
     </div>
-    <div class="col-sm-2 sidenav sidenav-left">
+    <div class="col-sm-2 sidenav sidenav-right">
     </div>
   </div>
 </div>
