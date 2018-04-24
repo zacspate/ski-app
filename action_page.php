@@ -82,11 +82,18 @@ if(strcmp("$_POST[frunnumber]","one")==0){
 		$result = $link->query($tester);
 		$row = $result->fetch_assoc();
 		if(strcmp($row['bibNumber'], "$_POST[fbib]")==0) {
-			$sql= "UPDATE Racer SET run2Time = '$_POST[fruntime]' WHERE bibNumber = '$_POST[fbib]' AND level = '$_POST[flevel]' AND race = '$_POST[frace]'";
-			if(mysqli_query($link, $sql)){
-				echo "Records inserted successfully for run 2.";
-			} else{
-				echo "ERROR: Could not insert time for run 2. Ensure race, level, and bib are correct and try again. ";
+			$tester= "SELECT run2Time FROM Racer WHERE bibNumber = '$_POST[fbib]' AND level = '$_POST[flevel]' AND race = '$_POST[frace]'";
+			$result = $link->query($tester);
+			$row = $result->fetch_assoc();
+			if(strcmp($row['run2Time'], "")==0) {
+				$sql= "UPDATE Racer SET run2Time = '$_POST[fruntime]' WHERE bibNumber = '$_POST[fbib]' AND level = '$_POST[flevel]' AND race = '$_POST[frace]'";
+				if(mysqli_query($link, $sql)){
+					echo "Records inserted successfully for run 2.";
+				} else{
+					echo "ERROR: Could not insert time for run 2. Ensure race, level, and bib are correct and try again. ";
+				}
+			}else{
+				echo "Cannot enter run 2 time for racer that already has run 2 time";
 			}
 		}else{
 			echo "Cannot enter run 2 time for racer who does not have run 1 time.";

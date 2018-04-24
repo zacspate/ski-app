@@ -88,6 +88,7 @@ $result = $link->query($sql);
 ?>
                         </tbody>
         </table>
+		<a class="btn btn-primary btn-lg btn-block" href=view_results.html>Back</a>
 	  </div>
     </div>
     <div class="col-sm-2 sidenav sidenav-right">
