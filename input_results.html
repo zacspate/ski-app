@@ -4,10 +4,12 @@
   <title>Special Olympics Skiing</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- links for bootstap-->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="ski_app.css">
+  <!--Link for style sheet-->
+  <link rel="stylesheet" href="ski_app.css"> 
   
 <!--script for validiating the form, makes sure the form is filled out*/-->
 <script>
@@ -33,8 +35,8 @@ function validateForm() {
         return false;
     }
 }
-</script>
-</head>
+</script><!--end of script-->
+</head><!--end of head-->
 
 <body>
 <!-- The navbar at the top of the screen with the home button-->
@@ -64,22 +66,22 @@ function validateForm() {
   <div class="row content">
     <div class="col-sm-2 sidenav sidenav-left">
 
-    </div>
+    </div><!--end of sidenav-left -->
     <div class="col-sm-8 center text-left"> 
 	  <div style="text-align: center">
 	    <h3>Pennsylvania Special Olympics</h3>
 	    <h4>Alpine Skiing</h4>
-	  </div>
+	  </div><!--end of text-align-->
 	  <hr>
       <h1>Input Form</h1>
 	  
 	  
 	<!--Form for inputing the data-->
 	<form name="myForm" action="/action_page.php"
-		onsubmit="return validateForm()" method="post">
+		onsubmit="return validateForm()" method="post"><!--calls action_page.php when the submit button is clicked-->
 		
 		<div class="form-group">
-		Race: <select class ="form-control" name="frace">
+		Race: <select class ="form-control" name="frace"> <!--short for form race-->
 			<option value = "" disabled selected>Select One</option>
 			<option value = "Slalom">Slalom</option>
 			<option value = "Super g">Super G</option>
@@ -88,7 +90,7 @@ function validateForm() {
 		</div>
 		
 		<div class="form-group">
-		Level: <select class ="form-control" name="flevel">
+		Level: <select class ="form-control" name="flevel"><!--short for form level-->
 			<option value = "" disabled selected>Select One</option>
 			<option value = "Novice">Novice</option>
 			<option value = "Intermediate">Intermediate</option>
@@ -97,33 +99,33 @@ function validateForm() {
 		</div>
 		
 		<div class="form-group">
-		Bib Number: <input class ="form-control" type="number" name="fbib">
+		Bib Number: <input class ="form-control" type="number" name="fbib"><!--short for form bib-->
 		</div>
 		
 		<div class="form-group">
-		Run Number: <select class ="form-control" name="frunnumber">
+		Run Number: <select class ="form-control" name="frunnumber"><!--short for form run number-->
 			<option value = "one">1</option>
 			<option value = "two">2</option>
 		</select>
 		</div>
 		
 		<div class="form-group">
-		 Run Time (Enter DNF for Did Not Finish): <input class ="form-control" type="text" name="fruntime" pattern="[D][N][F]|[0-9:.]+" title="Enter DNF or a time"> 
+		 Run Time (Enter DNF for Did Not Finish): <input class ="form-control" type="text" name="fruntime" pattern="[D][N][F]|[0-9:.]+" title="Enter DNF or a time"> <!--short for form runtime-->
 		</div>
 		
 		<input class="btn btn-primary btn-block" type="submit" value="Submit">
-	</form>
-    </div>
+	</form><!--end of form-->
+    </div><!--end of col-sm-8-->
 	
 	
     <div class="col-sm-2 sidenav sidenav-right">
-    </div>
-  </div>
-</div>
+    </div><!--end of sidenav-right-->
+  </div><!--end of row content-->
+</div><!--end of container-fluid-->
 
 <footer class="container-fluid text-center" style="float-bottom">
-  <p>Last updated: April 17, 2018</p>
+  <p>Last updated: April 26, 2018</p>
 </footer>
 
-</body>
+</body><!--end of body-->
 </html>
